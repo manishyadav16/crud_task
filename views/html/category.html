@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/jquery.growl.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+
+    <script src="../lib/bootstrap.bundle.min.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+
+    <title>Crud Task</title>
+  </head>
+  <body>
+    <div class="nav my-2">
+      <h5>
+        <a href="http://localhost:5000">Category</a>
+      </h5>
+      <h5>
+        <a href="http://localhost:5000/product">Product</a>
+      </h5>
+    </div>
+
+    <div class="container my-2">
+      <div class="row">
+        <div class="col-sm-10">
+          <h4 class="heading">CATEGORY MASTER TABLE</h4>
+        </div>
+        <div class="col-sm-2">
+          <button
+            id="open-add-c-from"
+            type="button"
+            class="btn btn-success"
+            onclick="handleAddEditForm('add')"
+          >
+            Add Category
+          </button>
+        </div>
+      </div>
+
+      <div class="row my-4 custom_border hardCenter">
+        <div class="row" id="category-table">
+          <div class="table-responsive my-2">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Inserted</th>
+                  <th scope="col">Updated</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="categoryTable">
+                <tr>
+                  <th scope="row" colspan="5">Loading...</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row" id="pg_div">
+            <div class="pg">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    href="#"
+                    id="first-pg"
+                    onclick="location.reload()"
+                    >1</a
+                  >
+                </li>
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    href="#"
+                    id="pg-left"
+                    onclick="pgno>1?goLeft():$.growl.warning({message:'Cant Go Left Its First Page'})"
+                    ><<</a
+                  >
+                </li>
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    href="#"
+                    id="pg-right"
+                    onclick="pgno<parseInt(document.getElementById('last-pg').innerHTML)?goRight():$.growl.warning({message:'Cant Go Right Its Last Page'})"
+                    >>></a
+                  >
+                </li>
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    href="#"
+                    id="last-pg"
+                    onclick="loadEndPage(this.innerHTML)"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3 my-4 hidden" id="addCategory">
+          <div class="mb-3">
+            <label for="cname" class="form-label">Category Name</label>
+            <input type="text" class="form-control" id="cname" />
+          </div>
+          <button
+            id="formControl"
+            type="submit"
+            class="btn btn-primary"
+            onclick="this.innerHTML == 'UPDATE'?updateCategory(): addCategory()"
+          >
+            ADD
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../lib/jquery.growl.min.js"></script>
+    <script src="../js/category.js"></script>
+  </body>
+</html>

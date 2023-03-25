@@ -1,0 +1,41 @@
+.heading {
+    text-align: center;
+    color: rgb(135, 133, 133);
+  }
+  
+  .custom_border {
+    border: 2px solid gray;
+    border-radius: 25px;
+    padding: 8px;
+  }
+  
+  #addCategory {
+    border-left: 2px solid gray;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .hardCenter {
+    text-align: center !important;
+  }
+  
+  .pg {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-weight: bolder;
+  }
+  
+  .pg_input {
+    width: 55px;
+    height: 38px;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
